@@ -19,6 +19,7 @@ for i in lst50:
     temp.append(i.select_one('.ellipsis.rank02').a.text)
     temp.append(i.select_one('.ellipsis.rank03').a.text)
     melonList.append(temp)
+    print(temp)
 
 with open('melon100.csv','w',encoding='utf-8',newline='') as f:
     writer =csv.writer(f)

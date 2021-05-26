@@ -4,18 +4,29 @@ class BugsMusic(object):
 
     url = ''
 
+    class_name = []
 
     def __str__(self):
         return self.url
 
-    @staticmethod
-    def scrap(url, class_name):
-        soup = BeautifulSoup(urlopen(url), 'lxml')
+
+    def scrap(self):
+        soup = BeautifulSoup(urlopen(self.url), 'lxml')
+        print('---------------- ARTIST RANKING ------------------')
+
         count = 0
-        for i in soup.find_all(name='p', attrs=({"class": class_name[0]})): #artist
+        for i in soup.find_all(name='p', attrs=({"class": self.class_name[0]})): #artist
             count += 1
             print(f'{str(count)} RANKING')
-            print(f'{class_name}: {i.find("a").text}')
+            print(f'artist: {i.find("a").text}')
+
+        print('---------------- TITLE RANKING ------------------')
+
+        count = 0
+        for i in soup.find_all(name='p', attrs=({"class": self.class_name[0]})): #artist
+            count += 1
+            print(f'{str(count)} RANKING')
+            print(f'title: {i.find("a").text}')
 
 # https://music.bugs.co.kr/chart/track/realtime/total?wl_ref=M_contents_03_01
     @staticmethod
@@ -29,8 +40,9 @@ class BugsMusic(object):
                 bugs.url = input('input URL')
 
             elif menu == 2:
-                print(f'Input URL is {bugs}')
-
+                bugs.class_name.append("rank")
+                bugs.class_name.append("title")
+                bugs.scrap()
             else:
                 print('Wrong Number')
                 continue
