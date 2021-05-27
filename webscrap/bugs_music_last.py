@@ -1,3 +1,4 @@
+import pandas as pd
 from bs4 import BeautifulSoup
 import requests
 
@@ -21,6 +22,9 @@ class BugsMusic(object):
         ls = soup.find_all(name='p', attrs=({"class": self.class_name[0]}))
         for i in ls:
             print(f'{i.find("a").text}')
+
+
+
 
 
     @staticmethod

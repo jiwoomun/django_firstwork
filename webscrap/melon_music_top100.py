@@ -21,7 +21,7 @@ for i in lst50:
     melonList.append(temp)
     print(temp)
 
-with open('melon100.csv','w',encoding='utf-8',newline='') as f:
+with open('data/melon100.csv', 'w', encoding='utf-8', newline='') as f:
     writer =csv.writer(f)
     writer.writerow(['순위','아티스트','곡명','앨범'])
     writer.writerow((melonList))
