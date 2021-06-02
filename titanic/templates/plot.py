@@ -1,4 +1,4 @@
-from titanic.models.dataset import Dataset
+from titanic.models.dataset import DataSet
 from titanic.models.service import Service
 import matplotlib.pyplot as plt
 from matplotlib import font_manager, rc
@@ -8,7 +8,7 @@ rc('font', family = font_manager.FontProperties(fname='C:/Windows/Fonts/H2GTRE.t
 
 class Plot(object):
 
-    dataset: object = Dataset()
+    dataset: object = DataSet()
     service: object = Service()
 
     def __init__(self, fname):
@@ -55,34 +55,3 @@ class Plot(object):
         plt.show()
 
 
-
-'''
-The data type of Train is <class 'pandas.core.frame.DataFrame'>.
-Columns of Train is Index(['PassengerId', 'Survived', 'Pclass', 'Name', 'Sex', 'Age', 'SibSp',
-       'Parch', 'Ticket', 'Fare', 'Cabin', 'Embarked'],
-      dtype='object').
-The top 5 superior data are <bound method NDFrame.head of      PassengerId  Survived  Pclass  ...     Fare Cabin  Embarked
-0              1         0       3  ...   7.2500   NaN         S
-1              2         1       1  ...  71.2833   C85         C
-2              3         1       3  ...   7.9250   NaN         S
-3              4         1       1  ...  53.1000  C123         S
-4              5         0       3  ...   8.0500   NaN         S
-..           ...       ...     ...  ...      ...   ...       ...
-886          887         0       2  ...  13.0000   NaN         S
-887          888         1       1  ...  30.0000   B42         S
-888          889         0       3  ...  23.4500   NaN         S
-889          890         1       1  ...  30.0000  C148         C
-890          891         0       3  ...   7.7500   NaN         Q
-[891 rows x 12 columns]>.
-The top 5 inferior data are <bound method NDFrame.tail of      PassengerId  Survived  Pclass  ...     Fare Cabin  Embarked
-0              1         0       3  ...   7.2500   NaN         S
-1              2         1       1  ...  71.2833   C85         C
-2              3         1       3  ...   7.9250   NaN         S
-3              4         1       1  ...  53.1000  C123         S
-4              5         0       3  ...   8.0500   NaN         S
-..           ...       ...     ...  ...      ...   ...       ...
-886          887         0       2  ...  13.0000   NaN         S
-887          888         1       1  ...  30.0000   B42         S
-888          889         0       3  ...  23.4500   NaN         S
-889          890         1       1  ...  30.0000  C148         C
-890          891         0       3  ...   7.7500   NaN         Q

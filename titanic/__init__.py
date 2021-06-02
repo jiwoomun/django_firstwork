@@ -1,8 +1,8 @@
 from titanic.views.controller import Controller
 from titanic.templates.plot import Plot
 
-
 if __name__ == '__main__':
+    controller = Controller()
 
     #인스턴스만
 
@@ -22,14 +22,13 @@ if __name__ == '__main__':
             plot.draw_embarked()
 
         elif menu == '2':
-            controller = Controller()
-            controller.service.model_dataset()
-            controller.dataset.preprocess()
+            df = controller.modeling("train.csv","test.csv")
 
         elif menu == '3':
-            pass
+            controller.learning(df)
+
         elif menu == '4':
-            pass
+            controller.submit("train.csv","test.csv")
         else:
             continue
 
